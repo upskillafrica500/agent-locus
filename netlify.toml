@@ -1,0 +1,7 @@
+[build]
+  publish = "agent/public"
+
+[[redirects]]
+  from = "/*"
+  to = "/landing.html"
+  status = 200
