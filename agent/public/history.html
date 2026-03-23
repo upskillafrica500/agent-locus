@@ -14,7 +14,7 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-logo">
-            <div class="logo-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div class="logo-icon"><i data-lucide="layers"></i></div>
             <div>
                 <h1>AgentLocus</h1>
                 <p>Identity Matrix</p>
@@ -37,13 +37,13 @@
     <!-- Main Content -->
     <main class="main-content bg-mesh">
         <div class="page-header">
-            <h2><i class="fa-solid fa-clock-rotate-left" style="color:#818cf8;margin-right:8px;"></i> Trade History</h2>
+            <h2><i data-lucide="history" style="color:#6366f1;margin-right:8px;"></i> Trade History</h2>
             <p>Full execution log of ENS-masked agent transactions across all supported chains.</p>
         </div>
 
         <div class="page-body fade-in">
             <!-- Stats Row -->
-            <div class="grid-3" style="margin-bottom:24px;">
+            <div class="grid-3" style="margin-bottom:32px;">
                 <div class="stat-card border-accent-emerald">
                     <div class="stat-label">Total Trades</div>
                     <div class="stat-value" id="stat-trades">—</div>
@@ -72,21 +72,23 @@
                     </div>
                 </div>
                 <div class="card-body" style="padding:0;">
-                    <table class="history-table" id="history-table">
-                        <thead>
-                            <tr>
-                                <th>Timestamp</th>
-                                <th>Type</th>
-                                <th>Action</th>
-                                <th>Chain</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-                                <th>Tx Hash</th>
-                            </tr>
-                        </thead>
-                        <tbody id="history-body">
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="history-table" id="history-table">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>Type</th>
+                                    <th>Action</th>
+                                    <th>Chain</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Tx Hash</th>
+                                </tr>
+                            </thead>
+                            <tbody id="history-body">
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -113,15 +115,15 @@
         
         tbody.innerHTML = filtered.map(t => {
             const badgeClass = t.status === 'success' ? 'badge-success' : t.status === 'locked' ? 'badge-locked' : t.status === 'released' ? 'badge-released' : 'badge-failed';
-            const chainColor = { base: '#3b82f6', ethereum: '#818cf8', celo: '#22c55e' }[t.chain.toLowerCase()] || '#64748b';
+            const chainColor = { base: 'var(--accent-sky)', ethereum: 'var(--accent-indigo)', celo: 'var(--accent-emerald)' }[t.chain.toLowerCase()] || 'var(--text-muted)';
             return `<tr>
-                <td class="font-mono" style="font-size:0.78rem;color:#64748b;">${t.time}</td>
-                <td><span style="font-weight:600;color:#e2e8f0;">${t.type}</span></td>
-                <td style="color:#cbd5e1;">${t.action.replace(/Agent [A-Z]/g, m => `<span class="ens-badge">${m}</span>`)}</td>
-                <td><span style="color:${chainColor};font-weight:600;font-size:0.8rem;">${t.chain}</span></td>
-                <td class="font-mono" style="color:#e2e8f0;font-weight:500;">${t.amount}</td>
+                <td class="font-mono" style="font-size:0.75rem; color:var(--text-muted);">${t.time}</td>
+                <td><span style="font-weight:600; color:var(--text-primary);">${t.type}</span></td>
+                <td style="color:var(--text-secondary);">${t.action.replace(/Agent [A-Z]/g, m => `<span class="ens-badge">${m}</span>`)}</td>
+                <td><span style="color:${chainColor}; font-weight:700; font-size:0.8rem;">${t.chain.toUpperCase()}</span></td>
+                <td class="font-mono" style="color:var(--text-primary); font-weight:600;">${t.amount}</td>
                 <td><span class="badge ${badgeClass}">${t.status}</span></td>
-                <td class="font-mono" style="font-size:0.75rem;color:#64748b;">${t.tx}</td>
+                <td class="font-mono" style="font-size:0.75rem; color:var(--text-muted);">${t.tx}</td>
             </tr>`;
         }).join('');
 

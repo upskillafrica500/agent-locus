@@ -14,7 +14,7 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-logo">
-            <div class="logo-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div class="logo-icon"><i data-lucide="layers"></i></div>
             <div>
                 <h1>AgentLocus</h1>
                 <p>Identity Matrix</p>
@@ -36,21 +36,21 @@
 
     <!-- Main Content -->
     <main class="main-content bg-mesh">
-        <div class="page-header" style="text-align:center;padding-top:48px;">
-            <h2 class="gradient-text" style="font-size:2.2rem;">AgentLocus Documentation</h2>
-            <p style="font-size:1rem;max-width:600px;margin:8px auto 0;">The definitive guide for Humans and Agents interacting within the Locus ecosystem.</p>
+        <div class="page-header" style="text-align:center; padding: 40px 20px;">
+            <h2 class="gradient-text" style="font-size:2.5rem; margin-bottom: 12px;">AgentLocus Documentation</h2>
+            <p style="font-size:1rem; max-width:600px; margin: 0 auto;">The definitive guide for humans and agents interacting within the Locus ecosystem.</p>
         </div>
 
         <div class="page-body fade-in" style="max-width:900px;margin:0 auto;">
 
             <!-- What is AgentLocus? -->
-            <div class="card" style="margin-bottom:24px;position:relative;overflow:hidden;">
-                <div style="position:absolute;top:0;right:0;padding:32px;opacity:0.03;">
-                    <i class="fa-solid fa-fingerprint" style="font-size:120px;"></i>
+            <div class="card" style="margin-bottom:32px; position:relative; overflow:hidden;">
+                <div style="position:absolute; top:0; right:0; padding:32px; opacity:0.05;">
+                    <i data-lucide="fingerprint" style="width:120px; height:120px;"></i>
                 </div>
-                <div class="card-body" style="padding:32px;">
-                    <h3 style="font-size:1.4rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px;">
-                        <i class="fa-solid fa-id-badge" style="color:#818cf8;"></i> What is AgentLocus?
+                <div class="card-body" style="padding:40px;">
+                    <h3 style="font-size:1.5rem; font-weight:700; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
+                        <i data-lucide="info" style="color:var(--accent-indigo);"></i> What is AgentLocus?
                     </h3>
                     <p style="color:#cbd5e1;line-height:1.8;margin-bottom:12px;">
                         AgentLocus solves the fundamental UX dilemma of autonomous AI. When scripts execute on-chain using raw hex addresses
@@ -163,28 +163,27 @@
             </div>
 
             <!-- Architecture -->
-            <div class="card" style="margin-bottom:40px;">
+            <div class="card" style="margin-bottom:32px;">
                 <div class="card-header">
-                    <h3><i class="fa-solid fa-code" style="color:#818cf8;"></i> Architecture & Execution Flow</h3>
+                    <h3><i data-lucide="terminal" style="color:#6366f1;"></i> Architecture & Execution Flow</h3>
                 </div>
                 <div class="card-body">
-                    <div class="font-mono" style="background:#0f172a;border:1px solid rgba(255,255,255,0.04);border-radius:10px;padding:24px;font-size:0.78rem;color:#64748b;line-height:2;overflow-x:auto;">
-                        User Input -&gt; [Dashboard UI]<br>
+                    <div class="font-mono" style="background:#020617; border:1px solid var(--border-subtle); border-radius:12px; padding:24px; font-size:0.75rem; color:var(--text-secondary); line-height:1.8; overflow-x:auto;">
+                        <span style="color:var(--text-muted);">// Intent Propagation Flow</span><br>
+                        User Input -&gt; <span style="color:var(--accent-sky);">Dashboard UI</span><br>
                         &nbsp;&nbsp;&nbsp;&nbsp;| (POST /api/prompt)<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;v<br>
-                        [AgentLocus Node.js Proxy Server]<br>
-                        &nbsp;&nbsp;-&gt; Binds identity: "You are <span style="color:#6ee7b7;">agentlocus.eth</span>"<br>
-                        &nbsp;&nbsp;-&gt; Detects escrow/secret keywords → <span style="color:#38bdf8;">Lit Protocol encrypt</span><br>
-                        &nbsp;&nbsp;-&gt; Pushes encrypted CID to <span style="color:#c084fc;">Filecoin/IPFS</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;| (Headers: X-API-Key)<br>
+                        <span style="color:var(--accent-indigo);">AgentLocus Proxy</span> [Node.js]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;-&gt; Identity Binding: <span style="color:var(--accent-emerald);">"You are agentlocus.eth"</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;-&gt; Privacy Layer: <span style="color:var(--accent-sky);">Lit Protocol Encryption</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;-&gt; Persistence: <span style="color:var(--accent-pink);">Filecoin / IPFS</span><br>
                         &nbsp;&nbsp;&nbsp;&nbsp;v<br>
-                        [BankR LLM Gateway / Execution Layer]<br>
-                        &nbsp;&nbsp;&lt;- Returns raw output containing 0x... addresses<br>
-                        [AgentLocus Proxy]<br>
-                        &nbsp;&nbsp;-&gt; Regex Masking: 0x... -&gt; [<span style="color:#6ee7b7;">agentlocus.eth</span>]<br>
-                        &nbsp;&nbsp;-&gt; Appends Lit/Filecoin receipt if applicable<br>
+                        <span style="color:var(--accent-amber);">BankR LLM Suite</span> [Verification Layer]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;- Raw Address Vectors (0x...)<br>
+                        <span style="color:var(--accent-indigo);">Locus Resolver</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;-&gt; Semantic Masking: 0x... -&gt; <span style="color:var(--accent-emerald);">agentlocus.eth</span><br>
                         &nbsp;&nbsp;&nbsp;&nbsp;v<br>
-                        User Output -&gt; [Dashboard Terminal Display]
+                        User Output [Final Delivery]
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-logo">
-            <div class="logo-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div class="logo-icon"><i data-lucide="layers"></i></div>
             <div>
                 <h1>AgentLocus</h1>
                 <p>Identity Matrix</p>
@@ -37,15 +37,15 @@
     <!-- Main Content -->
     <main class="main-content bg-mesh">
         <div class="page-header">
-            <h2 class="gradient-text" style="display:inline-flex;align-items:center;gap:10px;">
-                <i class="fa-solid fa-shield-halved"></i> Celo Trust & Escrow
+            <h2 class="gradient-text" style="display:inline-flex;align-items:center;gap:12px;">
+                <i data-lucide="shield-check"></i> Celo Trust & Escrow
             </h2>
             <p>Manage verifiable attestations and agent-to-agent conditional payments on the Celo network.</p>
         </div>
 
         <div class="page-body fade-in">
             <!-- Stats -->
-            <div class="grid-3" style="margin-bottom:24px;">
+            <div class="grid-3" style="margin-bottom:32px;">
                 <div class="stat-card border-accent-emerald">
                     <div class="stat-label">Active Escrows</div>
                     <div class="stat-value" style="color:#34d399;">3</div>
@@ -64,40 +64,49 @@
                 <!-- Active Escrows -->
                 <div class="card border-accent-emerald">
                     <div class="card-header">
-                        <h3><i class="fa-solid fa-lock" style="color:#34d399;"></i> Active Escrows (cUSD)</h3>
+                        <h3><i data-lucide="lock" style="color:#10b981;"></i> Active Escrows (cUSD)</h3>
                     </div>
                     <div class="card-body" style="display:flex;flex-direction:column;gap:12px;">
                         <div class="escrow-card">
-                            <div>
-                                <div class="font-mono" style="color:#6ee7b7;font-size:0.85rem;font-weight:600;">Escrow #001</div>
-                                <div style="font-size:10px;color:#475569;text-transform:uppercase;margin-top:4px;">Pending Filecoin Dataset</div>
-                                <div class="font-mono" style="font-size:10px;color:#334155;margin-top:2px;">CID: bafybeigdyrxtpk2s...7p65</div>
+                            <div style="display:flex; gap:16px; align-items:center;">
+                                <div class="attestation-icon" style="background:rgba(16,185,129,0.1); color:var(--accent-emerald);">#1</div>
+                                <div>
+                                    <div class="font-mono" style="color:var(--accent-emerald); font-size:0.9rem; font-weight:700;">Escrow #001</div>
+                                    <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; margin-top:4px; letter-spacing:0.05em;">Pending Filecoin Dataset</div>
+                                    <div class="font-mono" style="font-size:10px; color:var(--text-muted); margin-top:2px;">CID: bafybeig...7p65</div>
+                                </div>
                             </div>
                             <div style="text-align:right;">
-                                <div style="font-weight:700;color:#f8fafc;font-size:1.1rem;">50.00 cUSD</div>
+                                <div style="font-weight:800; color:var(--text-primary); font-size:1.2rem; font-family:'Outfit';">50.00 cUSD</div>
                                 <span class="badge badge-locked">Locked</span>
                             </div>
                         </div>
                         <div class="escrow-card">
-                            <div>
-                                <div class="font-mono" style="color:#6ee7b7;font-size:0.85rem;font-weight:600;">Escrow #002</div>
-                                <div style="font-size:10px;color:#475569;text-transform:uppercase;margin-top:4px;">Compute Task — Agent C</div>
-                                <div class="font-mono" style="font-size:10px;color:#334155;margin-top:2px;">CID: bafybeih4r2xnm3k...9a21</div>
+                            <div style="display:flex; gap:16px; align-items:center;">
+                                <div class="attestation-icon" style="background:rgba(16,185,129,0.1); color:var(--accent-emerald);">#2</div>
+                                <div>
+                                    <div class="font-mono" style="color:var(--accent-emerald); font-size:0.9rem; font-weight:700;">Escrow #002</div>
+                                    <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; margin-top:4px; letter-spacing:0.05em;">Compute Task — Agent C</div>
+                                    <div class="font-mono" style="font-size:10px; color:var(--text-muted); margin-top:2px;">CID: bafybeih...9a21</div>
+                                </div>
                             </div>
                             <div style="text-align:right;">
-                                <div style="font-weight:700;color:#f8fafc;font-size:1.1rem;">50.00 cUSD</div>
+                                <div style="font-weight:800; color:var(--text-primary); font-size:1.2rem; font-family:'Outfit';">50.00 cUSD</div>
                                 <span class="badge badge-locked">Locked</span>
                             </div>
                         </div>
                         <div class="escrow-card">
-                            <div>
-                                <div class="font-mono" style="color:#6ee7b7;font-size:0.85rem;font-weight:600;">Escrow #003</div>
-                                <div style="font-size:10px;color:#475569;text-transform:uppercase;margin-top:4px;">API Provisioning — Agent D</div>
-                                <div class="font-mono" style="font-size:10px;color:#334155;margin-top:2px;">CID: bafybeig7xn4pl2k...3f82</div>
+                            <div style="display:flex; gap:16px; align-items:center;">
+                                <div class="attestation-icon" style="background:rgba(16,185,129,0.1); color:var(--accent-emerald);">#3</div>
+                                <div>
+                                    <div class="font-mono" style="color:var(--accent-emerald); font-size:0.9rem; font-weight:700;">Escrow #003</div>
+                                    <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; margin-top:4px; letter-spacing:0.05em;">API Provisioning — Agent D</div>
+                                    <div class="font-mono" style="font-size:10px; color:var(--text-muted); margin-top:2px;">CID: bafybeig...3f82</div>
+                                </div>
                             </div>
                             <div style="text-align:right;">
-                                <div style="font-weight:700;color:#f8fafc;font-size:1.1rem;">25.00 cUSD</div>
-                                <span class="badge badge-released" style="background:rgba(52,211,153,0.15);color:#6ee7b7;">Released</span>
+                                <div style="font-weight:800; color:var(--text-primary); font-size:1.2rem; font-family:'Outfit';">25.00 cUSD</div>
+                                <span class="badge badge-released">Released</span>
                             </div>
                         </div>
                     </div>
@@ -106,12 +115,12 @@
                 <!-- Attestations -->
                 <div class="card border-accent-indigo">
                     <div class="card-header">
-                        <h3><i class="fa-solid fa-certificate" style="color:#818cf8;"></i> EAS Attestations (Celo)</h3>
+                        <h3><i data-lucide="certificate" style="color:#6366f1;"></i> EAS Attestations (Celo)</h3>
                     </div>
                     <div class="card-body" style="display:flex;flex-direction:column;gap:12px;">
                         <div class="attestation-card">
-                            <div class="attestation-icon" style="background:rgba(52,211,153,0.15);border:1px solid rgba(52,211,153,0.3);">
-                                <i class="fa-solid fa-check" style="color:#34d399;"></i>
+                            <div class="attestation-icon" style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);">
+                                <i data-lucide="check" style="color:#10b981; width:16px; height:16px;"></i>
                             </div>
                             <div>
                                 <div style="font-weight:600;color:#f8fafc;font-size:0.9rem;">Task Completed Successfully</div>
@@ -120,8 +129,8 @@
                             </div>
                         </div>
                         <div class="attestation-card">
-                            <div class="attestation-icon" style="background:rgba(52,211,153,0.15);border:1px solid rgba(52,211,153,0.3);">
-                                <i class="fa-solid fa-star" style="color:#fbbf24;"></i>
+                            <div class="attestation-icon" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);">
+                                <i data-lucide="star" style="color:#f59e0b; width:16px; height:16px;"></i>
                             </div>
                             <div>
                                 <div style="font-weight:600;color:#f8fafc;font-size:0.9rem;">Trust Score Issued: 94/100</div>
@@ -130,8 +139,8 @@
                             </div>
                         </div>
                         <div class="attestation-card">
-                            <div class="attestation-icon" style="background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.3);">
-                                <i class="fa-solid fa-handshake" style="color:#818cf8;"></i>
+                            <div class="attestation-icon" style="background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);">
+                                <i data-lucide="handshake" style="color:#6366f1; width:16px; height:16px;"></i>
                             </div>
                             <div>
                                 <div style="font-weight:600;color:#f8fafc;font-size:0.9rem;">Cross-Agent Cooperation Verified</div>
@@ -144,12 +153,12 @@
             </div>
 
             <!-- Contract Info -->
-            <div class="card" style="margin-top:24px;">
+            <div class="card" style="margin-top:32px;">
                 <div class="card-header">
-                    <h3><i class="fa-solid fa-file-contract" style="color:#38bdf8;"></i> Smart Contract Details</h3>
+                    <h3><i data-lucide="file-text" style="color:#6366f1;"></i> Smart Contract Details</h3>
                 </div>
                 <div class="card-body">
-                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                    <div class="grid-2">
                         <div>
                             <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#475569;font-weight:600;">Contract Name</div>
                             <div class="font-mono" style="color:#e2e8f0;margin-top:4px;">ConditionalEscrow.sol</div>

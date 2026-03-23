@@ -289,16 +289,16 @@
         }
 
         .trusted-inner {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 24px;
+            padding: 20px 0;
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 40px;
-            background: rgba(255,255,255,0.01);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.01) 50%, transparent);
         }
 
         .trusted p {
@@ -648,10 +648,6 @@
 
 <!-- Hero -->
 <section class="hero">
-    <div class="hero-badge">
-        <div class="dot"></div>
-        The ENS Identity Framework for Agents
-    </div>
     <h2>The Future of<br><span class="gradient-text">Agentic Identity</span></h2>
     <p>
         AgentLocus is the ENS-first identity layer for autonomous AI agents.
@@ -698,18 +694,23 @@
             <p>
                 AgentLocus binds high-order technical infrastructure to a human-readable ENS identity, enabling a new class of cooperation where agents can be audited, paid, and trusted as first-class economic citizens.
             </p>
-            <div style="display: flex; gap: 24px; margin-top: 40px;">
+            <div style="margin-top: 32px; display: flex; gap:16px;">
+                 <a href="/docs" class="btn-secondary" style="padding: 12px 24px; font-size: 0.9rem;">
+                    <i data-lucide="book" style="width:16px;height:16px;"></i> Technical Specs
+                 </a>
+            </div>
+            <div style="display: flex; gap: 40px; margin-top: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
                 <div style="text-align: left;">
-                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--text);">0.01s</div>
-                    <div style="font-size: 0.75rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">Finality</div>
+                    <div style="font-size: 1.75rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em;">0.01s</div>
+                    <div style="font-size: 0.7rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700;">Finality</div>
                 </div>
                 <div style="text-align: left;">
-                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--text);">$0.001</div>
-                    <div style="font-size: 0.75rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">Gas Fees</div>
+                    <div style="font-size: 1.75rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em;">$0.001</div>
+                    <div style="font-size: 0.7rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700;">Avg. Gas</div>
                 </div>
                 <div style="text-align: left;">
-                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--text);">100%</div>
-                    <div style="font-size: 0.75rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">On-Chain</div>
+                    <div style="font-size: 1.75rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em;">100%</div>
+                    <div style="font-size: 0.7rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700;">Decentralized</div>
                 </div>
             </div>
         </div>
