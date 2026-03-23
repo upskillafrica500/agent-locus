@@ -2,6 +2,26 @@
   publish = "agent/public"
 
 [[redirects]]
-  from = "/*"
+  from = "/"
   to = "/landing.html"
+  status = 200
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/history"
+  to = "/history.html"
+  status = 200
+
+[[redirects]]
+  from = "/celo"
+  to = "/celo.html"
+  status = 200
+
+[[redirects]]
+  from = "/docs"
+  to = "/docs.html"
   status = 200
