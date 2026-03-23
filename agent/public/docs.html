@@ -21,7 +21,7 @@
             </div>
         </div>
         <nav>
-            <a href="/" class="nav-link"><i class="fa-solid fa-terminal"></i> Terminal & Holdings</a>
+            <a href="/dashboard" class="nav-link"><i class="fa-solid fa-terminal"></i> Terminal & Holdings</a>
             <a href="/history" class="nav-link"><i class="fa-solid fa-clock-rotate-left"></i> Trade History</a>
             <a href="/celo" class="nav-link"><i class="fa-solid fa-shield-halved"></i> Celo Trust System</a>
             <a href="/docs" class="nav-link active"><i class="fa-solid fa-book-open"></i> Documentation</a>
@@ -60,7 +60,7 @@
                     <p style="color:#cbd5e1;line-height:1.8;">
                         <strong>The Locus framework strictly enforces an ENS-first identity vector.</strong> Everything an agent does—trading, transferring, signing—is visually
                         and cryptographically masked to its ENS representation (e.g.,
-                        <code class="font-mono" style="background:#1e293b;padding:2px 8px;border-radius:4px;font-size:0.8rem;color:#6ee7b7;">synthesisagent.eth</code>).
+                        <code class="font-mono" style="background:#1e293b;padding:2px 8px;border-radius:4px;font-size:0.8rem;color:#6ee7b7;">agentlocus.eth</code>).
                         This bridges the gap between machine execution and human counterparty trust.
                     </p>
                 </div>
@@ -173,7 +173,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;| (POST /api/prompt)<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;v<br>
                         [AgentLocus Node.js Proxy Server]<br>
-                        &nbsp;&nbsp;-&gt; Binds identity: "You are <span style="color:#6ee7b7;">synthesisagent.eth</span>"<br>
+                        &nbsp;&nbsp;-&gt; Binds identity: "You are <span style="color:#6ee7b7;">agentlocus.eth</span>"<br>
                         &nbsp;&nbsp;-&gt; Detects escrow/secret keywords → <span style="color:#38bdf8;">Lit Protocol encrypt</span><br>
                         &nbsp;&nbsp;-&gt; Pushes encrypted CID to <span style="color:#c084fc;">Filecoin/IPFS</span><br>
                         &nbsp;&nbsp;&nbsp;&nbsp;| (Headers: X-API-Key)<br>
@@ -181,7 +181,7 @@
                         [BankR LLM Gateway / Execution Layer]<br>
                         &nbsp;&nbsp;&lt;- Returns raw output containing 0x... addresses<br>
                         [AgentLocus Proxy]<br>
-                        &nbsp;&nbsp;-&gt; Regex Masking: 0x... -&gt; [<span style="color:#6ee7b7;">synthesisagent.eth</span>]<br>
+                        &nbsp;&nbsp;-&gt; Regex Masking: 0x... -&gt; [<span style="color:#6ee7b7;">agentlocus.eth</span>]<br>
                         &nbsp;&nbsp;-&gt; Appends Lit/Filecoin receipt if applicable<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;v<br>
                         User Output -&gt; [Dashboard Terminal Display]

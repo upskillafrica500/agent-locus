@@ -16,7 +16,7 @@ try {
 } catch(e) { console.log("No .env found or failed to parse"); }
 
 const BANKR_API_KEY = process.env.BANKR_API_KEY;
-const LOCUS_ENS_NAME = process.env.LOCUS_ENS_NAME || "synthesisagent.eth";
+const LOCUS_ENS_NAME = process.env.LOCUS_ENS_NAME || "agentlocus.eth";
 
 function fetchBankR(endpoint, options = {}) {
   return new Promise((resolve, reject) => {
@@ -61,15 +61,21 @@ function serveStatic(req, res) {
   let urlPath = req.url.split('?')[0];
   
   // Route pages
-  const pages = ['/', '/index.html', '/dashboard', '/history', '/celo', '/docs'];
-  if (pages.includes(urlPath) || urlPath === '/dashboard.html' || urlPath === '/history.html' || urlPath === '/celo.html' || urlPath === '/docs.html') {
-    let fileName = 'index.html';
-    if (urlPath.includes('dashboard')) fileName = 'index.html';
-    else if (urlPath.includes('history')) fileName = 'history.html';
-    else if (urlPath.includes('celo')) fileName = 'celo.html';
-    else if (urlPath.includes('docs')) fileName = 'docs.html';
-    
-    const filePath = path.join(__dirname, 'public', fileName);
+  const pageMap = {
+    '/': 'landing.html',
+    '/index.html': 'landing.html',
+    '/dashboard': 'index.html',
+    '/dashboard.html': 'index.html',
+    '/history': 'history.html',
+    '/history.html': 'history.html',
+    '/celo': 'celo.html',
+    '/celo.html': 'celo.html',
+    '/docs': 'docs.html',
+    '/docs.html': 'docs.html',
+  };
+  
+  if (pageMap[urlPath]) {
+    const filePath = path.join(__dirname, 'public', pageMap[urlPath]);
     return fs.readFile(filePath, (err, content) => {
       if (err) { res.writeHead(404); return res.end("Not found"); }
       res.writeHead(200, { 'Content-Type': 'text/html' });
