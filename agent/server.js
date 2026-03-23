@@ -62,10 +62,10 @@ function serveStatic(req, res) {
   
   // Route pages
   const pageMap = {
-    '/': 'landing.html',
-    '/index.html': 'landing.html',
-    '/dashboard': 'index.html',
-    '/dashboard.html': 'index.html',
+    '/': 'index.html',
+    '/index.html': 'index.html',
+    '/dashboard': 'dashboard.html',
+    '/dashboard.html': 'dashboard.html',
     '/history': 'history.html',
     '/history.html': 'history.html',
     '/celo': 'celo.html',
