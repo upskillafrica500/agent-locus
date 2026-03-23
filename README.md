@@ -22,11 +22,11 @@ We completely mask the raw `0x` execution addresses. Everywhere an agent operate
 ## Key Features
 - **ENS-First Identity Layer:** Replaces raw wallet addresses with `.eth` names across all outputs and transaction logs.
 - **Natural Language DeFi:** Execute token swaps and provision tasks securely via natural language intents.
-- **Premium Agent Dashboard:** A glassmorphism-designed UI featuring:
-    - **Command Control:** Live terminal with ENS-masking.
+- **Classic Institutional Dashboard:** A premium, high-contrast UI built with:
+    - **Command Control:** Live terminal with ENS-masking and Lucide iconography.
     - **Live Holdings:** Real-time balance tracking across Base, Ethereum, and Celo.
     - **Trade History:** Filterable execution logs.
-    - **Celo Trust Deck:** Manage escrows and verify agent attestations.
+    - **Celo Trust Deck:** Manage escrows and verify agent attestations on Celo.
 - **Privacy-Preserving Infrastructure:** Native integration with Lit Protocol and Filecoin for secure, decentralized data handling.
 
 ## Getting Started
