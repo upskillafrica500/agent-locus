@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgentLocus — The Future of Agentic Identity</title>
     <meta name="description" content="AgentLocus is the ENS-first identity framework for autonomous AI agents. Trustless payments, encrypted cooperation, and verifiable trust on Celo.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
         :root {
             --bg: #020617;
-            --surface: rgba(15,23,42,0.55);
-            --border: rgba(255,255,255,0.06);
+            --surface: #0f172a;
+            --border: rgba(255,255,255,0.08);
             --text: #f8fafc;
             --text2: #94a3b8;
             --text3: #475569;
-            --indigo: #818cf8;
-            --emerald: #34d399;
-            --sky: #38bdf8;
-            --pink: #f472b6;
+            --indigo: #6366f1;
+            --emerald: #10b981;
+            --sky: #0ea5e9;
+            --pink: #d946ef;
             --purple: #c084fc;
         }
 
@@ -31,6 +31,12 @@
             background: var(--bg);
             color: var(--text);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.01em;
         }
 
         /* ─── Animated BG ─── */
@@ -101,14 +107,15 @@
         .nav-logo {
             width: 38px;
             height: 38px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+            border-radius: 8px;
+            background: var(--surface);
+            border: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 16px;
-            color: white;
-            box-shadow: 0 4px 15px rgba(139,92,246,0.3);
+            color: var(--indigo);
+            box-shadow: var(--shadow-sm);
         }
 
         .nav-brand h1 { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; }
@@ -203,8 +210,9 @@
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+            background: linear-gradient(135deg, #f8fafc 30%, #94a3b8 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -276,17 +284,30 @@
         .trusted {
             position: relative;
             z-index: 1;
-            padding: 0 24px 80px;
+            padding: 0 24px 100px;
             text-align: center;
         }
 
+        .trusted-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 24px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            background: rgba(255,255,255,0.01);
+        }
+
         .trusted p {
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.2em;
             color: var(--text3);
-            font-weight: 600;
-            margin-bottom: 24px;
+            font-weight: 700;
+            margin-right: 20px;
         }
 
         .trusted-logos {
@@ -295,16 +316,95 @@
             align-items: center;
             gap: 40px;
             flex-wrap: wrap;
-            opacity: 0.5;
         }
 
         .trusted-logos span {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--text3);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text2);
+            opacity: 0.5;
+            transition: opacity 0.3s, color 0.3s;
+            cursor: default;
+        }
+
+        .trusted-logos span:hover {
+            opacity: 1;
+            color: var(--text);
+        }
+
+        /* ─── About Section ─── */
+        .about-section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 24px;
+            background: radial-gradient(circle at 50% 0%, rgba(99,102,241,0.05) 0%, transparent 70%);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text2);
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .about-visual {
+            position: relative;
+            border-radius: 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .about-visual::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(99,102,241,0.2), transparent, rgba(236,72,153,0.1));
+            z-index: -1;
+        }
+
+        .visual-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 16px;
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .visual-item:last-child { border-bottom: none; }
+
+        .visual-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(99,102,241,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--indigo);
+        }
+
+        @media (max-width: 968px) {
+            .about-container { grid-template-columns: 1fr; gap: 40px; }
+            .trusted-inner { flex-direction: column; gap: 20px; }
+            .trusted p { margin-right: 0; }
         }
 
         /* ─── Features ─── */
@@ -535,14 +635,14 @@
 <!-- Nav -->
 <nav>
     <a href="/" class="nav-brand">
-        <div class="nav-logo"><i class="fa-solid fa-layer-group"></i></div>
+        <div class="nav-logo"><i data-lucide="layers"></i></div>
         <h1>AgentLocus</h1>
     </a>
     <ul class="nav-links">
         <li><a href="#features">Features</a></li>
         <li><a href="#how">How It Works</a></li>
         <li><a href="/docs">Docs</a></li>
-        <li><a href="/dashboard" class="btn-launch"><i class="fa-solid fa-rocket"></i> Launch App</a></li>
+        <li><a href="/dashboard" class="btn-launch"><i data-lucide="rocket"></i> Launch App</a></li>
     </ul>
 </nav>
 
@@ -560,24 +660,89 @@
     </p>
     <div class="hero-cta">
         <a href="/dashboard" class="btn-launch-lg">
-            <i class="fa-solid fa-rocket"></i> Launch App
+            <i data-lucide="rocket"></i> Launch App
         </a>
         <a href="#features" class="btn-secondary">
-            <i class="fa-solid fa-arrow-down"></i> Learn More
+            <i data-lucide="chevron-down"></i> Learn More
         </a>
     </div>
 </section>
 
 <!-- Trusted By -->
-<section class="trusted">
-    <p>Built With</p>
-    <div class="trusted-logos">
-        <span><i class="fa-brands fa-ethereum"></i> ENS</span>
-        <span><i class="fa-solid fa-coins"></i> Celo</span>
-        <span><i class="fa-solid fa-lock"></i> Lit Protocol</span>
-        <span><i class="fa-solid fa-database"></i> Filecoin</span>
-        <span><i class="fa-solid fa-arrow-right-arrow-left"></i> Uniswap</span>
-        <span><i class="fa-solid fa-robot"></i> BankR</span>
+<section class="trusted" id="partners">
+    <div class="trusted-inner">
+        <p>Ecosystem Partners</p>
+        <div class="trusted-logos">
+            <span>ENS</span>
+            <span>Celo</span>
+            <span>Lit Protocol</span>
+            <span>Filecoin</span>
+            <span>Uniswap</span>
+            <span>BankR</span>
+        </div>
+    </div>
+</section>
+
+<!-- About AgentLocus -->
+<section class="about-section" id="about">
+    <div class="about-container">
+        <div class="about-content">
+            <div class="hero-badge" style="margin-bottom: 16px;">
+                <i data-lucide="award" style="width:14px;height:14px;"></i>
+                Operational Identity
+            </div>
+            <h3>Identity is the <span class="gradient-text">Locus of Trust</span></h3>
+            <p>
+                In an autonomous economy, agents need more than just a wallet address. They need a verifiable history, a recognizable handle, and a way to prove intent without exposing sensitive metadata.
+            </p>
+            <p>
+                AgentLocus binds high-order technical infrastructure to a human-readable ENS identity, enabling a new class of cooperation where agents can be audited, paid, and trusted as first-class economic citizens.
+            </p>
+            <div style="display: flex; gap: 24px; margin-top: 40px;">
+                <div style="text-align: left;">
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--text);">0.01s</div>
+                    <div style="font-size: 0.75rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">Finality</div>
+                </div>
+                <div style="text-align: left;">
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--text);">$0.001</div>
+                    <div style="font-size: 0.75rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">Gas Fees</div>
+                </div>
+                <div style="text-align: left;">
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--text);">100%</div>
+                    <div style="font-size: 0.75rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">On-Chain</div>
+                </div>
+            </div>
+        </div>
+        <div class="about-visual">
+            <div class="visual-item">
+                <div class="visual-icon"><i data-lucide="shield-check"></i></div>
+                <div style="text-align: left;">
+                    <div style="font-weight: 600; font-size: 0.95rem;">Encrypted Settlement</div>
+                    <div style="font-size: 0.8rem; color: var(--text3);">Settled via Celo Conditional Escrow</div>
+                </div>
+            </div>
+            <div class="visual-item">
+                <div class="visual-icon"><i data-lucide="fingerprint"></i></div>
+                <div style="text-align: left;">
+                    <div style="font-weight: 600; font-size: 0.95rem;">Identity Masking</div>
+                    <div style="font-size: 0.8rem; color: var(--text3);">ENS-first resolver for hex addresses</div>
+                </div>
+            </div>
+            <div class="visual-item">
+                <div class="visual-icon"><i data-lucide="database"></i></div>
+                <div style="text-align: left;">
+                    <div style="font-weight: 600; font-size: 0.95rem;">Immutable History</div>
+                    <div style="font-size: 0.8rem; color: var(--text3);">Audit logs secured on IPC / Filecoin</div>
+                </div>
+            </div>
+            <div class="visual-item">
+                <div class="visual-icon" style="background:rgba(16,185,129,0.1); color:var(--emerald);"><i data-lucide="check-circle-2"></i></div>
+                <div style="text-align: left;">
+                    <div style="font-weight: 600; font-size: 0.95rem;">Attestation Ready</div>
+                    <div style="font-size: 0.8rem; color: var(--text3);">EAS trust scores verified on-chain</div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -655,7 +820,7 @@
         <h3>Ready to <span class="gradient-text">launch</span>?</h3>
         <p>Take control of your agent's identity, payments, and trust layer. Start executing ENS-masked operations now.</p>
         <a href="/dashboard" class="btn-launch-lg">
-            <i class="fa-solid fa-rocket"></i> Launch App
+            <i data-lucide="rocket"></i> Launch App
         </a>
     </div>
 </section>
@@ -669,5 +834,6 @@
     </p>
 </footer>
 
+<script>lucide.createIcons();</script>
 </body>
 </html>

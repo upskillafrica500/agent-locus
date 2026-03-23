@@ -6,7 +6,7 @@
     <title>AgentLocus | Command Control</title>
     <meta name="description" content="AgentLocus — The ENS-first identity framework for autonomous AI agents. Monitor balances, execute trades, and manage agent operations.">
     <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 <div class="app-layout">
@@ -14,7 +14,7 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-logo">
-            <div class="logo-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div class="logo-icon"><i data-lucide="layers"></i></div>
             <div>
                 <h1>AgentLocus</h1>
                 <p>Identity Matrix</p>
@@ -23,16 +23,16 @@
 
         <nav>
             <a href="/dashboard" class="nav-link active" id="nav-dashboard">
-                <i class="fa-solid fa-terminal"></i> Terminal & Holdings
+                <i data-lucide="terminal-square"></i> Terminal & Holdings
             </a>
             <a href="/history" class="nav-link" id="nav-history">
-                <i class="fa-solid fa-clock-rotate-left"></i> Trade History
+                <i data-lucide="clock"></i> Trade History
             </a>
             <a href="/celo" class="nav-link" id="nav-celo">
-                <i class="fa-solid fa-shield-halved"></i> Celo Trust System
+                <i data-lucide="shield-check"></i> Celo Trust System
             </a>
             <a href="/docs" class="nav-link" id="nav-docs">
-                <i class="fa-solid fa-book-open"></i> Documentation
+                <i data-lucide="book-open"></i> Documentation
             </a>
         </nav>
 
@@ -65,14 +65,14 @@
                 <!-- Holdings Panel -->
                 <div class="card" style="max-height:calc(100vh - 220px); display:flex; flex-direction:column;">
                     <div class="card-header">
-                        <h3><i class="fa-solid fa-wallet"></i> Live Holdings</h3>
+                        <h3><i data-lucide="wallet"></i> Live Holdings</h3>
                         <button onclick="loadBalances()" style="background:none;border:none;color:#94a3b8;cursor:pointer;" title="Refresh">
-                            <i class="fa-solid fa-rotate-right"></i>
+                            <i data-lucide="refresh-cw" style="width:14px; height:14px;"></i>
                         </button>
                     </div>
                     <div class="card-body" id="balances-container" style="flex:1; overflow-y:auto;">
                         <div style="display:flex;align-items:center;justify-content:center;height:100%;padding:40px 0;">
-                            <i class="fa-solid fa-circle-notch fa-spin" style="color:#818cf8;font-size:24px;"></i>
+                            <i data-lucide="loader-2" class="animate-spin" style="color:#6366f1;width:24px;height:24px;"></i>
                         </div>
                     </div>
                 </div>
@@ -111,6 +111,7 @@
 </div>
 
 <script>
+    lucide.createIcons();
     const formatUsd = (num) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(num);
 
     async function loadBalances() {
