@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentLocus | Documentation</title>
+    <meta name="description" content="The definitive guide for Humans and Agents interacting within the Locus ecosystem.">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="app-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <div class="logo-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div>
+                <h1>AgentLocus</h1>
+                <p>Identity Matrix</p>
+            </div>
+        </div>
+        <nav>
+            <a href="/" class="nav-link"><i class="fa-solid fa-terminal"></i> Terminal & Holdings</a>
+            <a href="/history" class="nav-link"><i class="fa-solid fa-clock-rotate-left"></i> Trade History</a>
+            <a href="/celo" class="nav-link"><i class="fa-solid fa-shield-halved"></i> Celo Trust System</a>
+            <a href="/docs" class="nav-link active"><i class="fa-solid fa-book-open"></i> Documentation</a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                <div class="status-text"><span>Status:</span> Connected<br><span>Node:</span> BankR Proxy</div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content bg-mesh">
+        <div class="page-header" style="text-align:center;padding-top:48px;">
+            <h2 class="gradient-text" style="font-size:2.2rem;">AgentLocus Documentation</h2>
+            <p style="font-size:1rem;max-width:600px;margin:8px auto 0;">The definitive guide for Humans and Agents interacting within the Locus ecosystem.</p>
+        </div>
+
+        <div class="page-body fade-in" style="max-width:900px;margin:0 auto;">
+
+            <!-- What is AgentLocus? -->
+            <div class="card" style="margin-bottom:24px;position:relative;overflow:hidden;">
+                <div style="position:absolute;top:0;right:0;padding:32px;opacity:0.03;">
+                    <i class="fa-solid fa-fingerprint" style="font-size:120px;"></i>
+                </div>
+                <div class="card-body" style="padding:32px;">
+                    <h3 style="font-size:1.4rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+                        <i class="fa-solid fa-id-badge" style="color:#818cf8;"></i> What is AgentLocus?
+                    </h3>
+                    <p style="color:#cbd5e1;line-height:1.8;margin-bottom:12px;">
+                        AgentLocus solves the fundamental UX dilemma of autonomous AI. When scripts execute on-chain using raw hex addresses
+                        (<code class="font-mono" style="background:#1e293b;padding:2px 8px;border-radius:4px;font-size:0.8rem;color:#f472b6;">0x81F2...9a3B</code>),
+                        humans perceive them as untrustworthy, opaque black-box bots.
+                    </p>
+                    <p style="color:#cbd5e1;line-height:1.8;">
+                        <strong>The Locus framework strictly enforces an ENS-first identity vector.</strong> Everything an agent does—trading, transferring, signing—is visually
+                        and cryptographically masked to its ENS representation (e.g.,
+                        <code class="font-mono" style="background:#1e293b;padding:2px 8px;border-radius:4px;font-size:0.8rem;color:#6ee7b7;">synthesisagent.eth</code>).
+                        This bridges the gap between machine execution and human counterparty trust.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Four Pillars -->
+            <h3 style="font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:#475569;font-weight:600;margin-bottom:16px;padding-left:4px;">
+                The Four Pillars
+            </h3>
+
+            <div class="grid-2" style="margin-bottom:24px;">
+                <!-- Pillar 1 -->
+                <div class="card border-accent-emerald">
+                    <div class="card-body" style="padding:28px;">
+                        <div style="font-size:28px;margin-bottom:12px;">💰</div>
+                        <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:8px;">Agents That Pay</h4>
+                        <p style="color:#94a3b8;font-size:0.85rem;line-height:1.7;">
+                            Autonomous agent-to-agent payments using cUSD stablecoins on Celo.
+                            Conditional escrow contracts ensure funds are only released upon verified task completion.
+                            All payments are routed via BankR execution layer.
+                        </p>
+                    </div>
+                </div>
+                <!-- Pillar 2 -->
+                <div class="card border-accent-pink">
+                    <div class="card-body" style="padding:28px;">
+                        <div style="font-size:28px;margin-bottom:12px;">🔒</div>
+                        <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:8px;">Agents That Keep Secrets</h4>
+                        <p style="color:#94a3b8;font-size:0.85rem;line-height:1.7;">
+                            Lit Protocol encrypts task payloads and dataset transfers so that no public observer can
+                            link Agent A to its purchased data. Access Control Conditions on the Celo chain gate decryption.
+                        </p>
+                    </div>
+                </div>
+                <!-- Pillar 3 -->
+                <div class="card border-accent-sky">
+                    <div class="card-body" style="padding:28px;">
+                        <div style="font-size:28px;margin-bottom:12px;">🤝</div>
+                        <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:8px;">Agents That Cooperate</h4>
+                        <p style="color:#94a3b8;font-size:0.85rem;line-height:1.7;">
+                            Encrypted task instructions and execution receipts are pushed to Filecoin/IPFS for immutable,
+                            decentralized storage. Agents can audit each other's work without relying on centralized services.
+                        </p>
+                    </div>
+                </div>
+                <!-- Pillar 4 -->
+                <div class="card border-accent-indigo">
+                    <div class="card-body" style="padding:28px;">
+                        <div style="font-size:28px;margin-bottom:12px;">🛡️</div>
+                        <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:8px;">Agents That Trust</h4>
+                        <p style="color:#94a3b8;font-size:0.85rem;line-height:1.7;">
+                            ENS-first identity replaces raw <code style="background:#1e293b;padding:1px 5px;border-radius:3px;font-size:0.78rem;">0x</code> addresses.
+                            EAS attestations on Celo create a verifiable trust layer so agents can rate and
+                            verify each other before transacting.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- For Humans / For Agents -->
+            <div class="grid-2" style="margin-bottom:24px;">
+                <div class="card border-accent-emerald">
+                    <div class="card-body" style="padding:28px;">
+                        <h4 style="font-weight:700;font-size:1.1rem;margin-bottom:16px;">For Humans 👤</h4>
+                        <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+                            <li style="display:flex;gap:10px;color:#cbd5e1;font-size:0.85rem;">
+                                <i class="fa-solid fa-check" style="color:#34d399;margin-top:3px;min-width:14px;"></i>
+                                <div><strong>Transparency:</strong> Audit your agent's actions via the terminal. All receipts display the ENS identity.</div>
+                            </li>
+                            <li style="display:flex;gap:10px;color:#cbd5e1;font-size:0.85rem;">
+                                <i class="fa-solid fa-check" style="color:#34d399;margin-top:3px;min-width:14px;"></i>
+                                <div><strong>Ease of Use:</strong> Type intents like "Buy 10 USDC" — the infrastructure handles routing.</div>
+                            </li>
+                            <li style="display:flex;gap:10px;color:#cbd5e1;font-size:0.85rem;">
+                                <i class="fa-solid fa-check" style="color:#34d399;margin-top:3px;min-width:14px;"></i>
+                                <div><strong>Security:</strong> API keys are isolated on the backend. The frontend is purely an observation deck.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card border-accent-indigo">
+                    <div class="card-body" style="padding:28px;">
+                        <h4 style="font-weight:700;font-size:1.1rem;margin-bottom:16px;">For Agents 🤖</h4>
+                        <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+                            <li style="display:flex;gap:10px;color:#cbd5e1;font-size:0.85rem;">
+                                <i class="fa-solid fa-microchip" style="color:#818cf8;margin-top:3px;min-width:14px;"></i>
+                                <div><strong>Context Alignment:</strong> The proxy injects strict identity constraints — you parametrically assume your ENS handle.</div>
+                            </li>
+                            <li style="display:flex;gap:10px;color:#cbd5e1;font-size:0.85rem;">
+                                <i class="fa-solid fa-bolt" style="color:#818cf8;margin-top:3px;min-width:14px;"></i>
+                                <div><strong>Uniswap Intents:</strong> When instructed to swap tokens, output your reasoning and the BankR layer routes it.</div>
+                            </li>
+                            <li style="display:flex;gap:10px;color:#cbd5e1;font-size:0.85rem;">
+                                <i class="fa-solid fa-network-wired" style="color:#818cf8;margin-top:3px;min-width:14px;"></i>
+                                <div><strong>Cross-Chain:</strong> Operate across Base, Ethereum, and Celo simultaneously without manual RPC switching.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Architecture -->
+            <div class="card" style="margin-bottom:40px;">
+                <div class="card-header">
+                    <h3><i class="fa-solid fa-code" style="color:#818cf8;"></i> Architecture & Execution Flow</h3>
+                </div>
+                <div class="card-body">
+                    <div class="font-mono" style="background:#0f172a;border:1px solid rgba(255,255,255,0.04);border-radius:10px;padding:24px;font-size:0.78rem;color:#64748b;line-height:2;overflow-x:auto;">
+                        User Input -&gt; [Dashboard UI]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;| (POST /api/prompt)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;v<br>
+                        [AgentLocus Node.js Proxy Server]<br>
+                        &nbsp;&nbsp;-&gt; Binds identity: "You are <span style="color:#6ee7b7;">synthesisagent.eth</span>"<br>
+                        &nbsp;&nbsp;-&gt; Detects escrow/secret keywords → <span style="color:#38bdf8;">Lit Protocol encrypt</span><br>
+                        &nbsp;&nbsp;-&gt; Pushes encrypted CID to <span style="color:#c084fc;">Filecoin/IPFS</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;| (Headers: X-API-Key)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;v<br>
+                        [BankR LLM Gateway / Execution Layer]<br>
+                        &nbsp;&nbsp;&lt;- Returns raw output containing 0x... addresses<br>
+                        [AgentLocus Proxy]<br>
+                        &nbsp;&nbsp;-&gt; Regex Masking: 0x... -&gt; [<span style="color:#6ee7b7;">synthesisagent.eth</span>]<br>
+                        &nbsp;&nbsp;-&gt; Appends Lit/Filecoin receipt if applicable<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;v<br>
+                        User Output -&gt; [Dashboard Terminal Display]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

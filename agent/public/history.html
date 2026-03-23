@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentLocus | Trade History</title>
+    <meta name="description" content="View your agent's complete transaction history across all chains — ENS-masked and fully transparent.">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="app-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <div class="logo-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div>
+                <h1>AgentLocus</h1>
+                <p>Identity Matrix</p>
+            </div>
+        </div>
+        <nav>
+            <a href="/" class="nav-link"><i class="fa-solid fa-terminal"></i> Terminal & Holdings</a>
+            <a href="/history" class="nav-link active"><i class="fa-solid fa-clock-rotate-left"></i> Trade History</a>
+            <a href="/celo" class="nav-link"><i class="fa-solid fa-shield-halved"></i> Celo Trust System</a>
+            <a href="/docs" class="nav-link"><i class="fa-solid fa-book-open"></i> Documentation</a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                <div class="status-text"><span>Status:</span> Connected<br><span>Node:</span> BankR Proxy</div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content bg-mesh">
+        <div class="page-header">
+            <h2><i class="fa-solid fa-clock-rotate-left" style="color:#818cf8;margin-right:8px;"></i> Trade History</h2>
+            <p>Full execution log of ENS-masked agent transactions across all supported chains.</p>
+        </div>
+
+        <div class="page-body fade-in">
+            <!-- Stats Row -->
+            <div class="grid-3" style="margin-bottom:24px;">
+                <div class="stat-card border-accent-emerald">
+                    <div class="stat-label">Total Trades</div>
+                    <div class="stat-value" id="stat-trades">—</div>
+                </div>
+                <div class="stat-card border-accent-indigo">
+                    <div class="stat-label">Total Volume</div>
+                    <div class="stat-value" id="stat-volume">—</div>
+                </div>
+                <div class="stat-card border-accent-sky">
+                    <div class="stat-label">Active Chains</div>
+                    <div class="stat-value" id="stat-chains">—</div>
+                </div>
+            </div>
+
+            <!-- History Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h3><i class="fa-solid fa-list"></i> Recent Transactions</h3>
+                    <div style="display:flex;gap:8px;">
+                        <select id="chain-filter" style="background:rgba(15,23,42,0.8);border:1px solid rgba(255,255,255,0.08);color:#94a3b8;padding:6px 12px;border-radius:8px;font-size:12px;outline:none;cursor:pointer;">
+                            <option value="all">All Chains</option>
+                            <option value="base">Base</option>
+                            <option value="ethereum">Ethereum</option>
+                            <option value="celo">Celo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body" style="padding:0;">
+                    <table class="history-table" id="history-table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Type</th>
+                                <th>Action</th>
+                                <th>Chain</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Tx Hash</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    // Sample data — in production, this would come from an API
+    const trades = [
+        { time: '2026-03-22 23:14', type: 'Swap', action: 'ETH → UNI', chain: 'Base', amount: '0.01 ETH', status: 'success', tx: '0x8a3…f21b' },
+        { time: '2026-03-22 22:47', type: 'Escrow', action: 'Lock 50 cUSD for Agent B', chain: 'Celo', amount: '50.00 cUSD', status: 'locked', tx: '0x1c9…e83a' },
+        { time: '2026-03-22 21:32', type: 'Swap', action: 'USDC → ETH', chain: 'Ethereum', amount: '25.00 USDC', status: 'success', tx: '0x7b2…d19c' },
+        { time: '2026-03-22 20:18', type: 'Transfer', action: 'Send 10 cUSD to Agent C', chain: 'Celo', amount: '10.00 cUSD', status: 'success', tx: '0x4e1…a73f' },
+        { time: '2026-03-22 19:55', type: 'Escrow', action: 'Release 25 cUSD to Agent D', chain: 'Celo', amount: '25.00 cUSD', status: 'released', tx: '0x9f3…b28e' },
+        { time: '2026-03-22 18:10', type: 'Swap', action: 'ETH → USDC', chain: 'Base', amount: '0.05 ETH', status: 'success', tx: '0x2d4…c91a' },
+        { time: '2026-03-22 16:44', type: 'Attestation', action: 'Issue trust score for Agent E', chain: 'Celo', amount: '—', status: 'success', tx: '0x6a7…e45d' },
+        { time: '2026-03-22 14:30', type: 'Swap', action: 'WBTC → ETH', chain: 'Ethereum', amount: '0.001 WBTC', status: 'failed', tx: '0x3c8…f72b' },
+    ];
+
+    function renderTable(filter = 'all') {
+        const tbody = document.getElementById('history-body');
+        const filtered = filter === 'all' ? trades : trades.filter(t => t.chain.toLowerCase() === filter);
+        
+        tbody.innerHTML = filtered.map(t => {
+            const badgeClass = t.status === 'success' ? 'badge-success' : t.status === 'locked' ? 'badge-locked' : t.status === 'released' ? 'badge-released' : 'badge-failed';
+            const chainColor = { base: '#3b82f6', ethereum: '#818cf8', celo: '#22c55e' }[t.chain.toLowerCase()] || '#64748b';
+            return `<tr>
+                <td class="font-mono" style="font-size:0.78rem;color:#64748b;">${t.time}</td>
+                <td><span style="font-weight:600;color:#e2e8f0;">${t.type}</span></td>
+                <td style="color:#cbd5e1;">${t.action.replace(/Agent [A-Z]/g, m => `<span class="ens-badge">${m}</span>`)}</td>
+                <td><span style="color:${chainColor};font-weight:600;font-size:0.8rem;">${t.chain}</span></td>
+                <td class="font-mono" style="color:#e2e8f0;font-weight:500;">${t.amount}</td>
+                <td><span class="badge ${badgeClass}">${t.status}</span></td>
+                <td class="font-mono" style="font-size:0.75rem;color:#64748b;">${t.tx}</td>
+            </tr>`;
+        }).join('');
+
+        // Update stats
+        document.getElementById('stat-trades').textContent = filtered.length;
+        const chains = [...new Set(filtered.map(t => t.chain))];
+        document.getElementById('stat-chains').textContent = chains.length;
+        document.getElementById('stat-volume').textContent = filtered.length + ' txns';
+    }
+
+    document.getElementById('chain-filter').addEventListener('change', (e) => renderTable(e.target.value));
+    renderTable();
+</script>
+</body>
+</html>

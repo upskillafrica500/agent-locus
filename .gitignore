@@ -1,0 +1,8 @@
+node_modules/
+.env
+*.log
+package-lock.json
+dist/
+.DS_Store
+Thumbs.db
+fetch_stitch.js
